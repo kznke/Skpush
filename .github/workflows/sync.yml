@@ -1,0 +1,15 @@
+name: sync
+on:
+  schedule:
+    - cron: "30 0 * * FRI"
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: sync
+      run: |
+        chmod +x .github/workflows/check.sh
+        .github/workflows/check.sh
